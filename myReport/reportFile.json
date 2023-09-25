@@ -1,0 +1,223 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-09-25T02:48:00.432Z",
+    "end": "2023-09-25T02:48:52.385Z",
+    "duration": 51953,
+    "testsRegistered": 7,
+    "passPercent": 42.857142857142854,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 3,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "6880fa7e-a1ad-4cd6-bf01-52d4136c68b3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Search.cy.js",
+      "file": "cypress\\e2e\\Search.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "27684535-2b58-43fd-a790-03480fa5b92a",
+          "title": "Kiwoko search page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate a valid website search",
+              "fullTitle": "Kiwoko search page Validate a valid website search",
+              "timedOut": null,
+              "duration": 15987,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "find(keyword4);\ncy.get('.search-keywords').should(\"exist\");\nfor (var i = 0; i < length; i++) {\n  cy.get('[data-pos=' + i + '] > .product > .product-tile > .tile-body > .pdp-link > .link > .text-base').should(\"exist\");\n  cy.get('[data-pos=' + i + '] > .product > .product-tile > .tile-body > .pdp-link > .link > .text-base').should(\"contain.text\", keyword4, {\n    matchCase: false\n  });\n}",
+              "err": {},
+              "uuid": "8363dedf-d4c6-42df-9dcb-506fe2733fdb",
+              "parentUUID": "27684535-2b58-43fd-a790-03480fa5b92a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate an invalid search on the website",
+              "fullTitle": "Kiwoko search page Validate an invalid search on the website",
+              "timedOut": null,
+              "duration": 10166,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "find(keyword3);\ncy.get('.result-count > .text-uppercase').should('include.text', 'No hemos encontrado lo que buscabas');\ncy.get('.search-keywords').should('include.text', keyword3);",
+              "err": {},
+              "uuid": "7a09f8be-c26c-4062-8d3e-a6fdb73d4bf4",
+              "parentUUID": "27684535-2b58-43fd-a790-03480fa5b92a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Perform an empty search on the website",
+              "fullTitle": "Kiwoko search page Perform an empty search on the website",
+              "timedOut": null,
+              "duration": 11922,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "find(keyword2);\ncy.get('.result-count >.text-uppercase').should('include.text', 'No hemos encontrado lo que buscabas');",
+              "err": {},
+              "uuid": "46ddb4b1-c9a2-4235-bc96-0efb45a2adc6",
+              "parentUUID": "27684535-2b58-43fd-a790-03480fa5b92a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate response with multiple pages to a search on the website",
+              "fullTitle": "Kiwoko search page Validate response with multiple pages to a search on the website",
+              "timedOut": null,
+              "duration": 7905,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "find(keyword);\ncy.get('.search-keywords').should(\"exist\");\ncy.wait(3000);\ncy.get('.show-more > .text-center > .btn').click();\ncy.get('[data-pos= 0] > .product > .product-tile > .tile-body > .pdp-link > .link > .text-base').should(\"include.text\", keyword, {\n  matchCase: false\n});\ncy.get('.show-more > .text-center > .btn').should('contain.text', '\\nMás Resultados\\n');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#onetrust-pc-btn-handler`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Kiwoko search page`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#onetrust-pc-btn-handler`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Kiwoko search page`\n    at Context.eval (webpack:///./cypress/e2e/Search.cy.js:9:11)",
+                "diff": null
+              },
+              "uuid": "3774d144-9ca3-4805-ab48-a50e15e9ccc6",
+              "parentUUID": "27684535-2b58-43fd-a790-03480fa5b92a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filter search results by brand",
+              "fullTitle": "Kiwoko search page Filter search results by brand",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "find(keyword);\ncy.get('.search-keywords').should(\"exist\");\ncy.get('.refinement-marcas > .card-header > .title').should('contain.text', 'Marcas').click();\ncy.get('#refinement-marcas > .values > :nth-child(1) > button > [aria-hidden=\"true\"]').should('contain.text', 'Catshion').click();\ncy.get('[data-pos=\"0\"] > .product > .product-tile > .tile-body > .pdp-brand > .product-brand').should('contain.text', 'Catshion');",
+              "err": {},
+              "uuid": "329b7469-b2a8-40b8-be9a-95ab9b7fdfc4",
+              "parentUUID": "27684535-2b58-43fd-a790-03480fa5b92a",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Filter search results by category",
+              "fullTitle": "Kiwoko search page Filter search results by category",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "find(keyword);\ncy.get('.refinement-categoría > .card-header > .title').should('contain.text', 'Categoría').click();\ncy.get('#refinement-categoría > .values > :nth-child(2) > button > [aria-hidden=\"true\"]').should('contain.text', 'Juguetes').click();",
+              "err": {},
+              "uuid": "83ef012e-f178-4121-8eae-60d88e55cc9c",
+              "parentUUID": "27684535-2b58-43fd-a790-03480fa5b92a",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "    ",
+              "fullTitle": "Kiwoko search page     ",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "find(keyword4);\ncy.get('.refinement-especie > .card-header > .title').should('contain.text', 'Especie').click();\ncy.get('#refinement-especie > .values > :nth-child(1) > button > [aria-hidden=\"true\"]').should('contain.text', 'Perro').click();\nfor (var i = 0; i < length; i++) {\n  cy.get('[data-pos=' + i + '] > .product > .product-tile > .tile-body > .pdp-link > .link > .text-base').should(\"exist\");\n  cy.get('[data-pos=' + i + '] > .product > .product-tile > .tile-body > .pdp-link > .link > .text-base').should(\"contain.text\", \"perro\");\n}",
+              "err": {},
+              "uuid": "4c016507-b05d-4b14-a9b1-3629fe30ead0",
+              "parentUUID": "27684535-2b58-43fd-a790-03480fa5b92a",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8363dedf-d4c6-42df-9dcb-506fe2733fdb",
+            "7a09f8be-c26c-4062-8d3e-a6fdb73d4bf4",
+            "46ddb4b1-c9a2-4235-bc96-0efb45a2adc6"
+          ],
+          "failures": [
+            "3774d144-9ca3-4805-ab48-a50e15e9ccc6"
+          ],
+          "pending": [],
+          "skipped": [
+            "329b7469-b2a8-40b8-be9a-95ab9b7fdfc4",
+            "83ef012e-f178-4121-8eae-60d88e55cc9c",
+            "4c016507-b05d-4b14-a9b1-3629fe30ead0"
+          ],
+          "duration": 45980,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "reportFile",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "myReport",
+        "reportFilename": "reportFile"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
